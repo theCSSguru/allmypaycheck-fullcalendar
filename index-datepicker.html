@@ -1,0 +1,47 @@
+<!doctype>
+<html>
+<head>
+  <title>All My Paycheck</title>
+  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+  <style>
+  body { overflow-y: auto; overflow-x: hidden; }
+  #calendar { color: #444; height: 100vh; width: 100vw; }
+  #calendar table, #calendar thead, #calendar tbody, #calendar tr, #calendar th, #calendar td { display: block; }
+  #calendar .ui-datepicker-inline { width: 100vw; height: 100vh; }
+  #calendar .ui-datepicker-header { position: relative; height: 5vh; width: 100vw; }
+  #calendar .ui-datepicker-prev, #calendar .ui-datepicker-next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); }
+  #calendar .ui-datepicker-prev { left: 1vw; }
+  #calendar .ui-datepicker-next { right: 1vw; }
+  #calendar .ui-datepicker-title { text-align: center; font-weight: bold; font-size: 125%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  #calendar .ui-datepicker-calendar { width: 100vw; height: 95vh; }
+  #calendar .ui-datepicker-calendar th { text-align: center; height: 5vh; width: calc(100vw / 7); float: left; }
+  #calendar .ui-datepicker-calendar th span { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  #calendar .ui-datepicker-calendar th, #calendar .ui-datepicker-calendar td { width: calc(100% / 7); padding: 8px; border: 1px #ddd solid; position: relative; }
+  #calendar .ui-datepicker-calendar td { height: calc(90vh / 5); width: calc(100vw / 7); float: left; }
+  #calendar .ui-datepicker-calendar .ui-state-default { cursor: default; color: #444; position: absolute; top: 8px; right: 8px; font-size: 80%; }
+  #calendar .ui-datepicker-calendar .ui-state-default:hover { text-decoration: none; }
+  #calendar .ui-datepicker-calendar .ui-datepicker-today { background: #ffffee; }
+  #calendar .ui-datepicker-calendar .ui-datepicker-other-month { background: #f8f8f8; }
+  #calendar .ui-datepicker-calendar .payday { background: #cdffcd; }
+  </style>
+</head>
+<body>
+
+<div id="calendar"></div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="bootstrap/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  //Start Datepicker
+  $('#calendar').datepicker();
+  //Unbind default click event per day
+  $('#calendar .ui-datepicker-calendar td').unbind();
+});
+</script>
+
+</body>
+</html>
